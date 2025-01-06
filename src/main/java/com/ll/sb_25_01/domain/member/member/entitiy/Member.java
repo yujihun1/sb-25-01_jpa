@@ -18,6 +18,6 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private  Long id;
-    private String uesrname;
+    private String username;
     private String password;
 }
