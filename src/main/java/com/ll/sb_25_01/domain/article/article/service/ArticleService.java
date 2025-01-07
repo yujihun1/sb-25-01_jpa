@@ -20,7 +20,6 @@ public class ArticleService {
     @Transactional
     public RsData<Article> write(long authorId,String title, String body){
         Article article = Article.builder()
-                .createDate(LocalDateTime.now())
                 .modifyDate(LocalDateTime.now())
                 .author(Member.builder().id(authorId).build())
                 .title(title)
@@ -34,5 +33,13 @@ public class ArticleService {
 
     public Optional<Article> findById(long id) {
         return articleRepository.findById(id);
+    }
+
+    @Transactional
+    public void modify(Article article,String title,String body){
+        article.setTitle(title);
+        article.setBody(body);
+
+        articleRepository.save(article);
     }
 }
