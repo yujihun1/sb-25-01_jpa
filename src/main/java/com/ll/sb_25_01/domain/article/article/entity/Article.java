@@ -1,21 +1,20 @@
 package com.ll.sb_25_01.domain.article.article.entity;
 
 import com.ll.sb_25_01.domain.member.member.entitiy.Member;
+import com.ll.sb_25_01.global.jpa.baseEntity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
-@Builder
+@SuperBuilder
 @Getter
 @Setter
-@EqualsAndHashCode
-public class Article {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
-    private  Long id;
+@ToString(callSuper = true)
+public class Article extends BaseEntity {
+
     @ManyToOne(fetch = FetchType.LAZY)
     private  Member author;
     private  String title;
