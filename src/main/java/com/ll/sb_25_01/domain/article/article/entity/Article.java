@@ -16,8 +16,8 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private  Long id;
-    @ManyToOne
-    private Member author;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private  Member author;
     private  String title;
     private  String body;
 }
