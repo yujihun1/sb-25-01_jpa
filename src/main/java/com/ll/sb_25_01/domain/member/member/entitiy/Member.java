@@ -14,6 +14,7 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class Member extends BaseEntity {
 
+
     private String username;
     private String password;
 }

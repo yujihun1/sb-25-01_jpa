@@ -7,6 +7,8 @@ import jakarta.persistence.MappedSuperclass;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDateTime;
+
 @MappedSuperclass
 @SuperBuilder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -19,4 +21,6 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private  Long id;
+    private LocalDateTime createDate;
+    private LocalDateTime modifyDate;
 }
