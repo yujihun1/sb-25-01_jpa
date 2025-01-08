@@ -1,5 +1,6 @@
 package com.ll.sb_25_01.domain.article.article.service;
 
+import com.ll.sb_25_01.domain.article.article.articlecomment.entity.ArticleComment;
 import com.ll.sb_25_01.domain.article.article.entity.Article;
 import com.ll.sb_25_01.domain.article.article.repository.ArticleRepository;
 import com.ll.sb_25_01.domain.member.member.entitiy.Member;
@@ -40,5 +41,9 @@ public class ArticleService {
         article.setTitle(title);
         article.setBody(body);
 
+    }
+    @Transactional
+    public void modifyComment(ArticleComment comment, String body) {
+        comment.setBody(body);
     }
 }
