@@ -42,8 +42,5 @@ public class ArticleService {
         article.setBody(body);
 
     }
-    @Transactional
-    public void modifyComment(ArticleComment comment, String body) {
-        comment.setBody(body);
-    }
+
 }
