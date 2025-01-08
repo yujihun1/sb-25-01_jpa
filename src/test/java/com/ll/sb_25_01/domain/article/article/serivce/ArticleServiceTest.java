@@ -82,23 +82,24 @@ public class ArticleServiceTest {
     @Test
     @Rollback(false)
     void t5() {
-        Article article1 = articleService.findById(1L).get();
-        Member member2 = memberService.findById(2L).get();
-        articleCommentService.write(member2, article1, "댓글 입니다.");    }
-
-
+        Article article2 = articleService.findById(2L).get();
+        Member member1 = memberService.findById(1L).get();
+        article2.addComment(member1, "댓글 입니다.");
+    }
     @DisplayName("1번 글의 댓글을 수정")
     @Test
     void t6() {
-        ArticleComment comment = articleCommentService.findLatest().get();
-        articleCommentService.modify(comment, "댓글 수정");
-    }
+        Article article1 = articleService.findById(1L).get();
+
+        article1.getComments().getLast().setBody("수정 댓글");}
 
     @DisplayName("1번 글의 댓글 중 마지막 것을 삭제")
     @Test
     void t7() {
-        ArticleComment lastComment = articleCommentService.findFirstByArticleIdOrderByIdDesc(1L).get();
+        Article article1 = articleService.findById(1L).get();
+        ArticleComment lastComment = article1.getComments().getLast();
 
-        articleCommentService.delete(lastComment);
+        article1.removeComment(lastComment);
+
     }
 }

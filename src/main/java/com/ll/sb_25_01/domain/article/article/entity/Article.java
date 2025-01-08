@@ -24,5 +24,19 @@ public class Article extends BaseEntity {
     private  Member author;
     private  String title;
     private  String body;
-
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private List<ArticleComment> comments = new ArrayList<>();
+    public void addComment(Member commentAuthor, String commentBody) {
+        ArticleComment comment = ArticleComment
+                .builder()
+                .article(this)
+                .author(commentAuthor)
+                .body(commentBody)
+                .build();
+        comments.add(comment);
+    }
+    public void removeComment(ArticleComment comment) {
+        comments.remove(comment);
+    }
 }

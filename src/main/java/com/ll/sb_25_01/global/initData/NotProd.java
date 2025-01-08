@@ -49,7 +49,7 @@ public class NotProd {
         Article article1 = articleService.findById(1L).get();
 
 
-        articleCommentService.write(member1, article1, "댓글1");
-        articleCommentService.write(member1, article1, "댓글2");
+        article1.addComment(member1, "댓글1");
+        article1.addComment(member1, "댓글2");
     }
 }
