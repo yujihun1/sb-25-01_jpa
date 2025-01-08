@@ -1,12 +1,14 @@
 package com.ll.sb_25_01.domain.article.article.entity;
 
+import com.ll.sb_25_01.domain.article.articlecomment.entity.ArticleComment;
 import com.ll.sb_25_01.domain.member.member.entitiy.Member;
 import com.ll.sb_25_01.global.jpa.baseEntity.BaseEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -22,4 +24,16 @@ public class Article extends BaseEntity {
     private  Member author;
     private  String title;
     private  String body;
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    @Builder.Default
+    private List<ArticleComment> comments = new ArrayList<>();
+    public void addComment(Member commentAuthor, String commentBody) {
+        ArticleComment comment = ArticleComment
+                .builder()
+                .article(this)
+                .author(commentAuthor)
+                .body(commentBody)
+                .build();
+        comments.add(comment);
+    }
 }
