@@ -1,6 +1,6 @@
 package com.ll.sb_25_01.domain.article.article.entity;
 
-import com.ll.sb_25_01.domain.article.articlecomment.entity.ArticleComment;
+import com.ll.sb_25_01.domain.article.article.articlecomment.entity.ArticleComment;
 import com.ll.sb_25_01.domain.member.member.entitiy.Member;
 import com.ll.sb_25_01.global.jpa.baseEntity.BaseEntity;
 import jakarta.persistence.*;
