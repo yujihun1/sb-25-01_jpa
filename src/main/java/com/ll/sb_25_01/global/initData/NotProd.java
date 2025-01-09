@@ -56,7 +56,15 @@ public class NotProd {
         article1.addComment(member1, "댓글2");
         article2.addComment(member1, "댓글3");
         article2.addComment(member1, "댓글4");
-        article2.addComment(member1, "댓글5");  }
+        article2.addComment(member1, "댓글5");
+
+
+        article1.addTag("자바");
+        article1.addTag("백엔드");
+        article1.addTag("프레임워크");
+        article1.addTag("스프링부트");
+
+    }
 
 
 }
