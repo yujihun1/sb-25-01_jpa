@@ -17,6 +17,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -101,5 +102,16 @@ public class ArticleServiceTest {
 
         article1.removeComment(lastComment);
 
+    }
+
+    @DisplayName("게시물 별 댓글 수 출력")
+    @Test
+    void t8(){
+        List<Article> articles = articleService.findAll();
+
+        articles.forEach(article -> {
+            System.out.println("게시물 번호: "+article.getId());
+            System.out.println("댓글 수: "+article.getComments().size());
+        });
     }
 }
