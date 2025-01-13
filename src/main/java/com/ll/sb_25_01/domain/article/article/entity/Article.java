@@ -10,6 +10,7 @@ import lombok.experimental.SuperBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -53,5 +54,21 @@ public class Article extends BaseEntity {
                 .content(tagContent)
                 .build();
         tags.add(tag);
+    }
+    public void addTag(String... tagContents) {
+        for (String tagContent : tagContents) {
+            addTag(tagContent);
+        }
+    }
+
+    public String getTagsStr() {
+        String tagsStr= tags
+                .stream()
+                .map(ArticleTag::getContent)
+                .collect(Collectors.joining(" #"));
+        if (tagsStr.isBlank()) {
+            return "";
+        }
+        return "#" + tagsStr;
     }
 }
