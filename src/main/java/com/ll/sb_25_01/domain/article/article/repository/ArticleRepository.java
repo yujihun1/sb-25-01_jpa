@@ -16,4 +16,6 @@ public interface ArticleRepository extends JpaRepository<Article,Long> {
 
     Page<Article> findByAuthor_usernameContainingOrTitleContainingOrBodyContaining(String kw, String kw1, String kw2, Pageable pageable);
     Page<Article> findByAuthor_usernameContaining(String kw, Pageable pageable);
+
+
 }
