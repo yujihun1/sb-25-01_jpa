@@ -32,4 +32,8 @@ public class MemberService {
     public Optional<Member> findById(long id) {
         return memberRepositroy.findById(id);
     }
+
+    public long count(){
+        return memberRepositroy.count();
+    }
 }
