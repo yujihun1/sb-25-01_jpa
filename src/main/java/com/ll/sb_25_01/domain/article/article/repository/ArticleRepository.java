@@ -7,16 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface ArticleRepository extends JpaRepository<Article,Long> {
+public interface ArticleRepository extends JpaRepository<Article, Long>, ArticleRepositoryCustom {
     List<Article> findByOrderByIdDesc();
-
-    Page<Article> findByTitleContainingOrBodyContaining(String kw, String kw1, Pageable pageable);
-    Page<Article> findByTitleContaining(String kw, Pageable pageable);
-    Page<Article> findByBodyContaining(String kw, Pageable pageable);
-
-    Page<Article> findByAuthor_usernameContainingOrTitleContainingOrBodyContaining(String kw, String kw1, String kw2, Pageable pageable);
-    Page<Article> findByAuthor_usernameContaining(String kw, Pageable pageable);
-
-    Page<Article> findByAuthor_usernameContainingOrTitleContainingOrBodyContainingOrTags_contentOrComments_author_usernameContainingOrComments_bodyContaining(String kw, String kw1, String kw2, String kw3, String kw4, String kw5, Pageable pageable);
-
 }
