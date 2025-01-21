@@ -52,7 +52,6 @@ public class ArticleRepositoryImpl implements ArticleRepositoryCustom {
                     .reduce(BooleanExpression::or)
                     .orElse(null);
             // 최종적으로 생성된 조건을 쿼리에 적용합니다.
-            // 최종적으로 생성된 조건을 쿼리에 적용합니다.
             if (combinedCondition != null) {
                 builder.and(combinedCondition);
             }
