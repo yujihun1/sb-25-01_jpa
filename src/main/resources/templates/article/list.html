@@ -65,9 +65,10 @@
 
 
 
-<div
-        th:replace="global/fragments/pagination :: pagination(${itemsPage}, ${@rq.getCurrentQueryStringWithoutParam('page')}, 3)"
-></div>
+<th:block th:with="queryStrBase = ${@rq.getCurrentQueryStringWithoutParam('page')}">
+    <th:block th:replace="global/fragments/pagination :: pagination(${itemsPage}, ${queryStrBase}, 3)">
+    </th:block>
+</th:block>
 
 <hr>
 
