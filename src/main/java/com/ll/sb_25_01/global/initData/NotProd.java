@@ -56,13 +56,17 @@ public class NotProd {
         article2.addComment(member1, "댓글3");
         article2.addComment(member1, "댓글4");
         article2.addComment(member1, "댓글5");
-        article2.addComment(member1, "댓글6");
-        article1.addComment(member1, "댓글7");
-        article2.addComment(member1, "댓글8");
-        article2.addComment(member1, "댓글9");
-        article2.addComment(member1, "댓글10");
-        article2.addComment(member1, "댓글11");
-        article2.addComment(member1, "댓글12");
+
+
+        article3.addComment(member1, "댓글6");
+        article3.addComment(member1, "댓글7");
+        article3.addComment(member1, "댓글8");
+        article3.addComment(member1, "댓글9");
+        article3.addComment(member1, "댓글10");
+        article3.addComment(member1, "댓글11");
+        article3.addComment(member1, "댓글12");
+        article3.addComment(member1, "댓글13");
+
 
 
 
@@ -72,7 +76,7 @@ public class NotProd {
 
         article4.addTag("자바","스프링부트");
 
-        IntStream.rangeClosed(5,120).forEach(
+        IntStream.rangeClosed(5,10000).forEach(
                 i -> {
                     String title = "제목" +i;
                     String body = "내용" +i;
